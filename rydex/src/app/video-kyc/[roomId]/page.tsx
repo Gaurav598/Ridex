@@ -221,7 +221,7 @@ const handleReject = async () => {
 
         <div>
           <p className="font-semibold tracking-wider">
-            RYDEX
+            Ridex
           </p>
           <p className="text-xs text-gray-400">
             {isAdmin ? "Admin Verification" : "Vendor Video KYC"}

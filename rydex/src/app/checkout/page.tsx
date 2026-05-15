@@ -134,7 +134,7 @@ export default function CheckoutPage() {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
       amount: orderData.amount,
       currency: "INR",
-      name: "RYDEX",
+      name: "Ridex",
       description: "Ride Payment",
       order_id: orderData.orderId,
 
