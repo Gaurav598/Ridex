@@ -2,12 +2,12 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import {
   ArrowLeft, MapPin, Navigation,
   Bike, Car, Truck, Clock, Route,
-  Zap, Search, RefreshCw
+  Zap, Search, RefreshCw, Loader2
 } from "lucide-react";
 import VehicleBookingCard from "@/components/VehicleBookingCard";
 
@@ -21,7 +21,7 @@ const VEHICLE_META: any = {
   truck:   { label: "Truck",   Icon: Truck },
 };
 
-export default function SearchPage() {
+function SearchContent() {
   const params = useSearchParams();
   const router = useRouter();
 
@@ -257,5 +257,13 @@ export default function SearchPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="flex h-screen items-center justify-center bg-zinc-100"><Loader2 className="w-8 h-8 animate-spin text-zinc-900" /></div>}>
+      <SearchContent />
+    </Suspense>
   );
 }
